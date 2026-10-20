@@ -1,3 +1,9 @@
+Design principles used -
+1. Encapsulate what varies.
+2. Favor composition over inheritance.
+3. Program to an interface, not an implementation.
+
+
 Strategy pattern defines a family of algorithms, encapsulates each one, and makes themm interchangeable.
 
                 SIMUDUCK - CLASS DIAGRAM
