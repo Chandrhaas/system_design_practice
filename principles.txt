@@ -1,0 +1,15 @@
+Principle one 
+Identify components in your application that stays the same and the ones that may change.
+Separate the two components.
+
+this is done so that we can alter the parts that need change without worrying about the parts that do not change.
+
+
+Principle two
+Program to an interface, not an implementation 
+High-level code should depend on a stable abstraction rather than a specific concrete implementation.
+We can change the implementation during runtime 
+
+Principle three
+Favor composition over inheritance 
+gives more flexibility, lets us encapsulate a family of algorithms into their own set of classes.
