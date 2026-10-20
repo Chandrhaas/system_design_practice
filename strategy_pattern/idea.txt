@@ -1,0 +1,48 @@
+Strategy pattern defines a family of algorithms, encapsulates each one, and makes themm interchangeable.
+
+                SIMUDUCK - CLASS DIAGRAM
+                 ========================
+                ------------------------
+                       <<abstract>>
+                          Duck
+                 +----------------------+
+                 | FlyBehavior          |
+                 | QuackBehavior        |
+                 +----------------------+
+                 | performFly()         |
+                 | performQuack()       |
+                 | swim()               |
+                 | display()            |
+                 +----------------------+
+                     ^    ^    ^    ^
+                     |    |    |    |
+                   extends / inherits
+                     |    |    |    |
+             +-------+    |    |    +-------+
+             |            |    |            |
+        MallardDuck   RedheadDuck   RubberDuck   DecoyDuck
+
+
+     FLYING BEHAVIOUR                    QUACKING BEHAVIOUR
+     =================                   ===================
+
+     <<interface>>                       <<interface>>
+      FlyBehavior                        QuackBehavior
+     +------------+                      +------------+
+     | fly()      |                      | quack()    |
+     +------------+                      +------------+
+          ^                                   ^
+          | implements                        | implements
+       +--+---------+                  +------+-------+-----+
+       |            |                  |                    |
+    canfly        nofly             canquack            noquack
+
+
+     COMPOSITION / HAS-A RELATIONSHIP
+     ===============================
+
+     Duck
+      |
+      +---- has-a ----> FlyBehavior
+      |
+      +---- has-a ----> QuackBehavior
