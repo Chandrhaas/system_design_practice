@@ -1,0 +1,85 @@
+Observer pattern defines one to many dependencies between objects so that when one object changes state, all of it's dependencies 
+are notified and updated automatically.
+
+
+eg-
+
+              OBSERVER PATTERN - WEATHER STATION
+              ==================================
+
+
+              +--------------------------+
+              |      <<interface>>       |
+              |          Subject         |
+              +--------------------------+
+              | + registerObserver()     |
+              | + removeObserver()       |
+              | + notifyObservers()      |
+              +------------^-------------+
+                           |
+                        implements
+                           |
+              +------------+-------------+
+              |       WeatherData        |
+              +--------------------------+
+              | - observers: List        |
+              | - temperature             |
+              | - humidity                |
+              | - pressure                |
+              +--------------------------+
+              | + registerObserver()     |
+              | + removeObserver()       |
+              | + notifyObservers()      |
+              | + measurementsChanged()  |
+              +------------+-------------+
+                           |
+                           | notifies
+                           v
+              +--------------------------+
+              |      <<interface>>       |
+              |         Observer         |
+              +--------------------------+
+              | + update(temp, hum, pres)|
+              +------------^-------------+
+                           |
+                implements | implements
+             +-------------+-------------+
+             |             |             |
+             v             v             v
+    +----------------+ +----------------+ +----------------+
+    | CurrentCond.   | | Statistics     | | Forecast        |
+    | Display        | | Display         | | Display         |
+    +----------------+ +----------------+ +----------------+
+    | + update()     | | + update()      | | + update()      |
+    | + display()    | | + display()     | | + display()     |
+    +-------+--------+ +-------+--------+ +-------+--------+
+            |                  |                  |
+            +------------------+------------------+
+                               |
+                        implements
+                               |
+                +--------------^-------------+
+                |       <<interface>>        |
+                |       DisplayElement       |
+                +----------------------------+
+                | + display()                |
+                +----------------------------+
+
+
+    KEY RELATIONSHIPS
+    =================
+
+    1. WeatherData implements Subject.
+
+    2. WeatherData maintains a collection of Observer references.
+
+    3. CurrentConditionsDisplay, StatisticsDisplay and
+       ForecastDisplay implement Observer.
+
+    4. These display classes also implement DisplayElement.
+
+    5. When weather measurements change, WeatherData notifies
+       its registered observers through update().
+
+    6. Each observer handles the update according to its own
+       requirements and displays information when appropriate.
