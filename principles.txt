@@ -13,3 +13,7 @@ We can change the implementation during runtime
 Principle three
 Favor composition over inheritance 
 gives more flexibility, lets us encapsulate a family of algorithms into their own set of classes.
+
+
+Principle four
+Strive for loosely coupled designs between objects that interact.
