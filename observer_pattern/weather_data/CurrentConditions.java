@@ -14,6 +14,7 @@ public class CurrentConditions  implements  DisplayElement,Observer{
         this.temperature = weatherdata.getTemperature();
         this.pressure = weatherdata.getPressure();
         this.humidity = weatherdata.getHumidity();
+        display();
     }
 
     public void display(){
